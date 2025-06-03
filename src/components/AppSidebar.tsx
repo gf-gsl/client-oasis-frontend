@@ -1,5 +1,6 @@
 
 import { Building2, Users, FileText, Settings, Home, Calendar, DollarSign, MapPin, Building } from "lucide-react"
+import { Link, useLocation } from "react-router-dom"
 import {
   Sidebar,
   SidebarContent,
@@ -52,6 +53,8 @@ const navigationItems = [
 ]
 
 export function AppSidebar() {
+  const location = useLocation()
+
   return (
     <Sidebar className="border-r border-gray-200">
       <SidebarHeader className="p-6">
@@ -76,11 +79,12 @@ export function AppSidebar() {
                   <SidebarMenuButton 
                     asChild 
                     className="hover:bg-blue-50 hover:text-blue-700 transition-colors"
+                    isActive={location.pathname === item.url}
                   >
-                    <a href={item.url} className="flex items-center gap-3">
+                    <Link to={item.url} className="flex items-center gap-3">
                       <item.icon className="h-5 w-5" />
                       <span>{item.title}</span>
-                    </a>
+                    </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
@@ -91,10 +95,10 @@ export function AppSidebar() {
       
       <SidebarFooter className="p-4">
         <SidebarMenuButton asChild className="hover:bg-gray-100">
-          <a href="/settings" className="flex items-center gap-3">
+          <Link to="/settings" className="flex items-center gap-3">
             <Settings className="h-5 w-5" />
             <span>Settings</span>
-          </a>
+          </Link>
         </SidebarMenuButton>
       </SidebarFooter>
     </Sidebar>
