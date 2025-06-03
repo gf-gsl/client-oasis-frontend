@@ -1,5 +1,5 @@
 
-import { Building2, Users, FileText, Settings, Home, Calendar, DollarSign } from "lucide-react"
+import { Building2, Users, FileText, Settings, Home, Calendar, DollarSign, MapPin, Building } from "lucide-react"
 import {
   Sidebar,
   SidebarContent,
@@ -25,24 +25,29 @@ const navigationItems = [
     icon: Users,
   },
   {
+    title: "Estates",
+    url: "/estates",
+    icon: MapPin,
+  },
+  {
     title: "Properties",
     url: "/properties",
     icon: Building2,
   },
   {
+    title: "Units",
+    url: "/units",
+    icon: Building,
+  },
+  {
+    title: "Tenants",
+    url: "/tenants",
+    icon: Users,
+  },
+  {
     title: "Leases",
     url: "/leases",
     icon: FileText,
-  },
-  {
-    title: "Payments",
-    url: "/payments",
-    icon: DollarSign,
-  },
-  {
-    title: "Calendar",
-    url: "/calendar",
-    icon: Calendar,
   },
 ]
 
@@ -54,7 +59,7 @@ export function AppSidebar() {
           <Building2 className="h-8 w-8 text-blue-600" />
           <div>
             <h2 className="text-xl font-bold text-gray-900">PropManager</h2>
-            <p className="text-sm text-gray-500">Client Portal</p>
+            <p className="text-sm text-gray-500">Management Portal</p>
           </div>
         </div>
       </SidebarHeader>
